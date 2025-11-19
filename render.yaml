@@ -1,1 +1,24 @@
-
+services:
+  - type: web
+    name: n8n
+    env: docker
+    plan: free
+    autoDeploy: true
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: N8N_ENCRYPTION_KEY
+        value: your-secret-key
+      - key: N8N_HOST
+        value: your-app.onrender.com
+      - key: N8N_PORT
+        value: 5678
+      - key: WEBHOOK_URL
+        value: https://your-app.onrender.com/
+      - key: EXECUTIONS_PROCESS
+        value: main
+      - key: GENERIC_TIMEZONE
+        value: Africa/Johannesburg
+      - key: N8N_LOG_LEVEL
+        value: info
+      - key: N8N_USER_FOLDER
+        value: /home/node/.n8n
